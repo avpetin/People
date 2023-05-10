@@ -4,7 +4,7 @@ public class Person {
     protected final String name;
     protected final String surname;
     protected int age;
-    protected String city;
+    protected String address;
 
     public Person(String name, String surname) {
         this.name = name;
@@ -39,13 +39,13 @@ public class Person {
         return age;
     }
 
-    public String getCity() {
-        return city;
+    public String getAddress() {
+        return address;
     }
 
     // Setter
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
 //    public PersonalBuilder newChildBuilder(){}
