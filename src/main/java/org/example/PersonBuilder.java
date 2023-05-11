@@ -1,26 +1,26 @@
 package org.example;
 
-public class PersonalBuilder {
+public class PersonBuilder {
     private String name;
     private String surname;
     private int age;
     private String address;
 
 
-    public PersonalBuilder() {
+    public PersonBuilder() {
     }
 
-    public PersonalBuilder setName(String name) {
+    public PersonBuilder setName(String name) {
         this.name = name;
         return this;
     }
 
-    public PersonalBuilder setSurname(String surname) {
+    public PersonBuilder setSurname(String surname) {
         this.surname = surname;
         return this;
     }
 
-    public PersonalBuilder setAge(int age) {
+    public PersonBuilder setAge(int age) {
         this.age = age;
         if(age >= 0) {
             return this;
@@ -30,7 +30,7 @@ public class PersonalBuilder {
         }
     }
 
-    public PersonalBuilder setAddress(String address) {
+    public PersonBuilder setAddress(String address) {
         this.address = address;
         return this;
     }
