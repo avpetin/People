@@ -18,11 +18,11 @@ public class Person {
     }
 
     // Check age & city
-    public boolean hasAge(){
+    public boolean hasAge() {
         return age >= 0;
     }
 
-    public boolean hasAddress(){
+    public boolean hasAddress() {
         return address != null;
     }
 
@@ -48,19 +48,19 @@ public class Person {
         this.address = address;
     }
 
-    public PersonBuilder newChildBuilder(){
+    public PersonBuilder newChildBuilder() {
         return new PersonBuilder()
                 .setSurname(surname)
                 .setAge(5)
                 .setAddress(hasAddress() ? address : null);
     }
 
-    private int happyBirthday(){
+    private int happyBirthday() {
         return age + 1;
     }
 
-     @Override
-   public String toString(){
+    @Override
+    public String toString() {
         return name + ' ' + surname;
     }
 /*
