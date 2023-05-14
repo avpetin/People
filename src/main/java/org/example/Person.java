@@ -1,9 +1,11 @@
 package org.example;
 
+import java.util.OptionalInt;
+
 public class Person {
     protected final String name;
     protected final String surname;
-    protected int age = -1;
+    protected OptionalInt age;
     protected String address;
 
     public Person(String name, String surname) {
@@ -14,12 +16,12 @@ public class Person {
     public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
-        this.age = age;
+        this.age = OptionalInt.of(age);
     }
 
     // Check age & city
     public boolean hasAge() {
-        return age >= 0;
+        return age.isPresent();
     }
 
     public boolean hasAddress() {
@@ -36,7 +38,10 @@ public class Person {
     }
 
     public int getAge() {
-        return age;
+        int ret;
+        if(hasAge())
+          return age.getAsInt();
+        else throw NoSuchElementException();
     }
 
     public String getAddress() {
