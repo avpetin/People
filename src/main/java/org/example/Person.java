@@ -39,9 +39,11 @@ public class Person {
 
     public int getAge() {
         int ret;
-        if(hasAge())
-          return age.getAsInt();
-        else throw NoSuchElementException();
+        if(hasAge()) {
+            return age.getAsInt();
+        } else {
+            throw (new IllegalArgumentException("Возраст не задан"));
+        }
     }
 
     public String getAddress() {
@@ -61,7 +63,12 @@ public class Person {
     }
 
     private int happyBirthday() {
-        return age + 1;
+        if(hasAge()) {
+            return age.getAsInt() + 1;
+        }
+        else {
+            throw (new IllegalArgumentException("Возраст не задан"));
+        }
     }
 
     @Override
