@@ -41,7 +41,7 @@ public class Person {
         if (hasAge()) {
             return age;
         } else {
-            throw (new IllegalArgumentException("Возраст не задан"));
+            return OptionalInt.empty();
         }
     }
 
