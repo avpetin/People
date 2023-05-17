@@ -37,10 +37,9 @@ public class Person {
         return surname;
     }
 
-    public int getAge() {
-        int ret;
-        if(hasAge()) {
-            return age.getAsInt();
+    public OptionalInt getAge() {
+        if (hasAge()) {
+            return age;
         } else {
             throw (new IllegalArgumentException("Возраст не задан"));
         }
@@ -62,12 +61,9 @@ public class Person {
                 .setAddress(hasAddress() ? address : null);
     }
 
-    private int happyBirthday() {
-        if(hasAge()) {
-            return age.getAsInt() + 1;
-        }
-        else {
-            throw (new IllegalArgumentException("Возраст не задан"));
+    public void happyBirthday() {
+        if (hasAge()) {
+            age = OptionalInt.of(getAge().getAsInt() + 1);
         }
     }
 
@@ -75,9 +71,13 @@ public class Person {
     public String toString() {
         return name + ' ' + surname;
     }
-/*
-    @Override
-    public int hashCode(){
 
-    }*/
+    @Override
+    public int hashCode() {
+        int prime = 31;
+        int result = 17;
+        result = prime * result + (name != null ? name.hashCode() : 0);
+        result = prime * result + (surname != null ? surname.hashCode() : 0);
+        return result;
+    }
 }
