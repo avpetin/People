@@ -5,7 +5,7 @@ import java.util.OptionalInt;
 public class Person {
     protected final String name;
     protected final String surname;
-    protected OptionalInt age;
+    protected OptionalInt age = OptionalInt.empty();
     protected String address;
 
     public Person(String name, String surname) {
@@ -38,11 +38,7 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        if (hasAge()) {
-            return age;
-        } else {
-            throw new IllegalArgumentException("Возраст не указан");
-        }
+        return age;
     }
 
     public String getAddress() {
